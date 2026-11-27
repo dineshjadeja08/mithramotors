@@ -113,7 +113,7 @@ export interface SiteConfig {
   brands: {
     name: string;
     description: string;
-    type: 'ICE & Electric' | 'Electric Specialist' | 'Smart EV' | 'EV Leader';
+    type: string;
     badgeColor: string;
   }[];
 
@@ -217,6 +217,12 @@ const siteConfig: SiteConfig = {
   // ── Official Brands ───────────────────────────────────────
   brands: [
     {
+      name: 'HERO',
+      description: 'Trusted Commuter Motorcycles & Scooters (Splendor+, HF Deluxe, Pleasure)',
+      type: 'Two-Wheeler Leader',
+      badgeColor: '#E5242A',
+    },
+    {
       name: 'TVS',
       description: 'Motorcycles, Scooters & Multi-Utility (Jupiter 110, XL100, Apache RTR, Sport)',
       type: 'ICE & Electric',
@@ -226,7 +232,7 @@ const siteConfig: SiteConfig = {
       name: 'KOMAKI',
       description: 'Advanced Electric Scooters & Smart Mobility (X-One Series)',
       type: 'Electric Specialist',
-      badgeColor: '#E5242A',
+      badgeColor: '#16A34A',
     },
     {
       name: 'BGAUSS',
@@ -234,16 +240,30 @@ const siteConfig: SiteConfig = {
       type: 'Smart EV',
       badgeColor: '#082D59',
     },
-    {
-      name: 'AMPERE',
-      description: 'Eco-Friendly, Low Maintenance Indian Electric Mobility',
-      type: 'EV Leader',
-      badgeColor: '#16A34A',
-    },
   ],
 
-  // ── Featured Vehicles (TVS, Komaki, BGauss, Ampere) ───────
+  // ── Featured Vehicles (Hero, TVS, Komaki, BGauss) ─────────
   vehicles: [
+    {
+      id: 'hero-splendor-plus',
+      brand: 'HERO',
+      model: 'Hero Splendor+',
+      category: 'motorcycle',
+      image: '/vehicles/hero-splendor-plus.webp',
+      engineCc: '97.2 cc',
+      mileageTag: 'Mileage Legend',
+      tag: 'Best Seller',
+      fuelType: 'Petrol',
+      colors: ['#0F172A', '#E5242A', '#475569'],
+      confirmedDetails: [
+        'India’s most trusted commuter motorcycle with i3S technology',
+        'High fuel efficiency and low maintenance cost',
+        'All Hero genuine spare parts & service available',
+      ],
+      isFeatured: true,
+      isElectricPage: false,
+      isPublished: true,
+    },
     {
       id: 'tvs-jupiter-110',
       brand: 'TVS',
@@ -342,7 +362,7 @@ const siteConfig: SiteConfig = {
       ],
       isFeatured: false,
       isElectricPage: true,
-      isPublished: true,
+      isPublished: false,
     },
     {
       id: 'tvs-apache-rtr-200',

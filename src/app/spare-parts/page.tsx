@@ -93,7 +93,7 @@ export default function SparePartsPage() {
             Genuine Spare Parts
           </h1>
           <p className="mt-2 text-base sm:text-lg text-gray-200">
-            Keep Your Ride in Top Condition with Original Components
+            Tyre, Battery, Oils — Hero &amp; TVS All Models Spares Available
           </p>
         </div>
       </section>
@@ -107,7 +107,7 @@ export default function SparePartsPage() {
             Browse Spare Parts Categories
           </h2>
           <p className="mt-2 text-sm text-gray-600">
-            We supply factory-grade genuine components for TVS, Hero, Honda, Bajaj, Yamaha, and Royal Enfield.
+            Tyre, Battery, Oils &amp; genuine spares for <strong>all Hero &amp; TVS models</strong> available in stock.
           </p>
         </div>
 

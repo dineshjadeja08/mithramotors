@@ -16,12 +16,10 @@ import {
 import siteConfig from '@/config/siteConfig';
 
 const BRANDS = [
-  { name: 'TVS', color: '#0754A6' },
   { name: 'Hero', color: '#E5242A' },
-  { name: 'Bajaj', color: '#082D59' },
-  { name: 'Honda', color: '#DC2626' },
-  { name: 'Yamaha', color: '#1E3A8A' },
-  { name: 'Royal Enfield', color: '#B91C1C' },
+  { name: 'TVS', color: '#0754A6' },
+  { name: 'Komaki', color: '#16A34A' },
+  { name: 'BGauss', color: '#082D59' },
 ];
 
 export default function AboutPage() {

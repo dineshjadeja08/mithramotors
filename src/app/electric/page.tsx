@@ -20,7 +20,7 @@ import { whatsappUrl, telUrl } from '@/lib/utils';
 export default function ElectricVehiclesPage() {
   const [selectedBrand, setSelectedBrand] = useState('All');
 
-  const evBrands = ['All', 'KOMAKI', 'BGAUSS', 'AMPERE'];
+  const evBrands = ['All', 'KOMAKI', 'BGAUSS'];
 
   const evVehicles = useMemo(() => {
     return siteConfig.vehicles.filter((v) => {

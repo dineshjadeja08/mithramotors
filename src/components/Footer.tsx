@@ -30,8 +30,7 @@ export default function Footer() {
             </p>
 
             <p className="text-sm text-gray-300 max-w-sm leading-relaxed">
-              Authorized sales and genuine service for TVS, Komaki, BGauss, and Ampere.
-              New bikes, electric scooters, certified periodic maintenance, and genuine spare parts.
+              Authorized sales for Hero, TVS, Komaki, and BGauss. Tyre, Battery, Oils &amp; genuine spare parts for all Hero and TVS models available.
             </p>
 
             <div className="flex items-start gap-2.5 text-xs text-gray-300 pt-1">

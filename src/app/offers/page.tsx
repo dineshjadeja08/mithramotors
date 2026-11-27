@@ -66,7 +66,7 @@ export default function OffersPage() {
             </h2>
             <p className="mt-3 text-sm sm:text-base text-gray-700 leading-relaxed">
               We periodically offer attractive festival finance schemes, easy down-payment support,
-              and top exchange value for your old two-wheeler across TVS, Komaki, BGauss, and Ampere.
+              and top exchange value for your old two-wheeler across Hero, TVS, Komaki, and BGauss.
             </p>
             <p className="mt-2 text-sm text-gray-500">
               Please contact our showroom sales advisors directly on WhatsApp or telephone to check

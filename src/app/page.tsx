@@ -25,8 +25,9 @@ import siteConfig from '@/config/siteConfig';
 import { telUrl, whatsappUrl, mapsUrl, formatPhone } from '@/lib/utils';
 
 export default function HomePage() {
-  const featuredBikes = siteConfig.vehicles.filter((v) => v.isFeatured).slice(0, 4);
-  const sparePartsPreview = siteConfig.spareParts.slice(0, 4);
+  const featuredBikes = siteConfig.vehicles.filter((v) => v.isFeatured && v.isPublished).slice(0, 4);
+  const previewIds = ['tyres', 'batteries', 'oils', 'engine-parts'];
+  const sparePartsPreview = siteConfig.spareParts.filter((p) => previewIds.includes(p.id));
 
   return (
     <div className="min-h-screen bg-[#F4F7FC]">
@@ -52,7 +53,7 @@ export default function HomePage() {
             {/* Showroom Facade Badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs sm:text-sm font-semibold tracking-wide mb-6">
               <span className="w-2 h-2 rounded-full bg-[#E5242A] animate-pulse" />
-              <span>TVS • KOMAKI • BGAUSS • AMPERE • KARAPATTU</span>
+              <span>HERO • TVS • KOMAKI • BGAUSS • KARAPATTU</span>
             </div>
 
             {/* Headline matching user prompt */}
@@ -152,7 +153,7 @@ export default function HomePage() {
               <Bike className="w-8 h-8" />
             </div>
             <h3 className="text-base sm:text-lg font-bold text-[#082D59]">New Bikes</h3>
-            <p className="text-xs text-gray-500 mt-1 mb-4">TVS motorcycles &amp; heavy-duty XL100</p>
+            <p className="text-xs text-gray-500 mt-1 mb-4">Hero &amp; TVS motorcycles, scooters &amp; XL100</p>
             <Link
               href="/bikes"
               className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-[#0754A6] hover:bg-[#053F7D] text-white text-xs sm:text-sm font-bold transition-colors"
@@ -168,7 +169,7 @@ export default function HomePage() {
               <Zap className="w-8 h-8" />
             </div>
             <h3 className="text-base sm:text-lg font-bold text-[#082D59]">Electric Vehicles</h3>
-            <p className="text-xs text-gray-500 mt-1 mb-4">Komaki, BGauss &amp; Ampere EV lineup</p>
+            <p className="text-xs text-gray-500 mt-1 mb-4">Komaki &amp; BGauss EV scooter lineup</p>
             <Link
               href="/electric"
               className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-[#16A34A] hover:bg-[#15803D] text-white text-xs sm:text-sm font-bold transition-colors"
@@ -184,7 +185,7 @@ export default function HomePage() {
               <Package className="w-8 h-8" />
             </div>
             <h3 className="text-base sm:text-lg font-bold text-[#082D59]">Spare Parts</h3>
-            <p className="text-xs text-gray-500 mt-1 mb-4">100% Genuine &amp; OEM components</p>
+            <p className="text-xs text-gray-500 mt-1 mb-4">Tyre, Battery, Oils — Hero &amp; TVS all models spares</p>
             <Link
               href="/spare-parts"
               className="w-full inline-flex items-center justify-center gap-1.5 px-4 py-2 rounded-lg bg-[#0754A6] hover:bg-[#053F7D] text-white text-xs sm:text-sm font-bold transition-colors"
@@ -313,11 +314,14 @@ export default function HomePage() {
           <div className="flex items-center justify-between mb-6">
             <div>
               <span className="text-xs font-bold text-[#E5242A] uppercase tracking-wider">
-                Original Spares
+                Tyre • Battery • Oils • All Hero &amp; TVS Models
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#082D59] font-heading mt-0.5">
                 Spare Parts Preview
               </h2>
+              <p className="text-xs sm:text-sm text-gray-600 mt-1">
+                Tyre, Battery, Oils — Hero &amp; TVS all models genuine spares available.
+              </p>
             </div>
 
             <Link
