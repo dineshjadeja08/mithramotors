@@ -14,18 +14,21 @@ export function whatsappUrl(message?: string): string {
 
 /**
  * Confirmed Google Maps link
- * https://maps.app.goo.gl/u4iZmHZ9RKNheBvr9
+ * https://maps.app.goo.gl/u3yxpXVWgFePQFFb7
  */
 export function mapsUrl(branchKey?: string): string {
   return siteConfig.googleMapsUrl;
 }
 
 /**
- * Build primary or secondary tel: link
+ * Build primary or secondary tel: link with +91 India country code
  */
 export function telUrl(phone?: string): string {
   const p = phone ?? siteConfig.primaryPhone;
   const digits = p.replace(/\D/g, '');
+  if (digits.length === 10) {
+    return `tel:+91${digits}`;
+  }
   return `tel:+${digits}`;
 }
 

@@ -155,8 +155,8 @@ export default function ContactPage() {
                   <div>
                     <h4 className="text-sm font-bold text-[#082D59]">Opening Hours</h4>
                     <p className="text-xs sm:text-sm text-gray-600 mt-0.5">
-                      Monday – Saturday: 9:00 AM – 8:00 PM<br />
-                      Sunday: 9:00 AM – 2:00 PM
+                      Monday – Saturday: 9:00 AM – 7:00 PM<br />
+                      Sunday: 9:30 AM – 1:30 PM (Half-Day)
                     </p>
                   </div>
                 </div>

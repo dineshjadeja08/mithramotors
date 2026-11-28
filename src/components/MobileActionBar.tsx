@@ -6,8 +6,10 @@ import Image from 'next/image';
 import { Wrench, Navigation } from 'lucide-react';
 import siteConfig from '@/config/siteConfig';
 import { telUrl, whatsappUrl, mapsUrl } from '@/lib/utils';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function MobileActionBar() {
+  const { lang } = useLanguage();
   return (
     <nav
       className="fixed bottom-0 left-0 right-0 z-40 block md:hidden bg-white/98 backdrop-blur-md border-t border-gray-200 shadow-[0_-4px_20px_rgba(8,45,89,0.12)] safe-bottom"
@@ -30,7 +32,7 @@ export default function MobileActionBar() {
               className="w-full h-full object-contain"
             />
           </div>
-          <span className="text-[10px] font-bold tracking-tight">Call</span>
+          <span className="text-[10px] font-bold tracking-tight">{lang === 'ta' ? 'அழைக்க' : 'Call'}</span>
         </a>
 
         {/* Action 2: WhatsApp */}
@@ -50,7 +52,7 @@ export default function MobileActionBar() {
               className="w-full h-full object-contain"
             />
           </div>
-          <span className="text-[10px] font-bold tracking-tight">WhatsApp</span>
+          <span className="text-[10px] font-bold tracking-tight">{lang === 'ta' ? 'வாட்ஸ்அப்' : 'WhatsApp'}</span>
         </a>
 
         {/* Action 3: Book Service */}
@@ -62,7 +64,7 @@ export default function MobileActionBar() {
           <div className="w-8 h-8 rounded-full bg-[#FDE8E9] text-[#E5242A] flex items-center justify-center mb-0.5 shadow-2xs">
             <Wrench className="w-4 h-4" />
           </div>
-          <span className="text-[10px] font-bold tracking-tight">Book Service</span>
+          <span className="text-[10px] font-bold tracking-tight">{lang === 'ta' ? 'சர்வீஸ்' : 'Book Service'}</span>
         </Link>
 
         {/* Action 4: Directions (Confirmed Google Maps link) */}
@@ -76,7 +78,7 @@ export default function MobileActionBar() {
           <div className="w-8 h-8 rounded-full bg-[#EBF3FC] text-[#0754A6] flex items-center justify-center mb-0.5 shadow-2xs">
             <Navigation className="w-4 h-4" />
           </div>
-          <span className="text-[10px] font-bold tracking-tight">Directions</span>
+          <span className="text-[10px] font-bold tracking-tight">{lang === 'ta' ? 'வழிகாட்டி' : 'Directions'}</span>
         </a>
       </div>
     </nav>

@@ -215,7 +215,7 @@ export default function ElectricVehiclesPage() {
             </h3>
             <p className="text-xs sm:text-sm text-gray-300 mt-2 max-w-lg">
               Visit our Karapattu showroom to explore battery charging options, range estimation, and
-              test drive our Komaki, BGauss, and Ampere models.
+              test drive our Komaki and BGauss electric scooters.
             </p>
           </div>
 

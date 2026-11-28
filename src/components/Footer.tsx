@@ -30,7 +30,7 @@ export default function Footer() {
             </p>
 
             <p className="text-sm text-gray-300 max-w-sm leading-relaxed">
-              Authorized sales for Hero, TVS, Komaki, and BGauss. Tyre, Battery, Oils &amp; genuine spare parts for all Hero and TVS models available.
+              Multi-brand sales &amp; service for Hero, TVS, Komaki, and BGauss. Tyre, Battery, Oils &amp; genuine spare parts for all Hero and TVS models available.
             </p>
 
             <div className="flex items-start gap-2.5 text-xs text-gray-300 pt-1">
@@ -42,7 +42,7 @@ export default function Footer() {
 
             <div className="flex items-center gap-2 text-xs text-gray-300">
               <Clock className="w-3.5 h-3.5 text-[#FFD42A] shrink-0" />
-              <span>Opening Hours: 9:00 AM – 7:00 PM (Mon – Sat)</span>
+              <span>Mon–Sat: 9:00 AM – 7:00 PM | Sun: 9:30 AM – 1:30 PM</span>
             </div>
           </div>
 

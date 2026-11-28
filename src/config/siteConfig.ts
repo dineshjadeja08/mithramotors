@@ -10,7 +10,7 @@
 
 export interface Vehicle {
   id: string;
-  brand: 'TVS' | 'KOMAKI' | 'BGAUSS' | 'AMPERE' | string;
+  brand: 'HERO' | 'TVS' | 'KOMAKI' | 'BGAUSS' | string;
   model: string;
   category: 'motorcycle' | 'scooter' | 'electric';
   image: string;
@@ -142,8 +142,12 @@ const siteConfig: SiteConfig = {
   subtitle:
     'New Bikes, Electric Scooters, Genuine Spare Parts & Expert Service.',
   description:
-    'Mithra Motors is an authorized multi-brand two-wheeler showroom and service center representing TVS, Komaki, BGauss, and Ampere. Located on Uthangarai to Tirupattur Main Road, Karapattu, Krishnagiri, Tamil Nadu.',
-  url: 'https://mithramotors.in',
+    'Mithra Motors is a multi-brand two-wheeler showroom and service center for Hero, TVS, Komaki, and BGauss, with genuine spare parts (Tyre, Battery, Oils) for all Hero & TVS models. Located on Uthangarai to Tirupattur Main Road, Karapattu, Near Barath Pump, Krishnagiri, Tamil Nadu – 635207.',
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ||
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : 'https://mithramotors.vercel.app'),
   locale: 'en_IN',
 
   // ── Confirmed Contact Numbers ─────────────────────────────
@@ -165,10 +169,10 @@ const siteConfig: SiteConfig = {
   },
 
   // ── Official Google Maps URL ──────────────────────────────
-  googleMapsUrl: 'https://maps.app.goo.gl/u4iZmHZ9RKNheBvr9',
+  googleMapsUrl: 'https://maps.app.goo.gl/u3yxpXVWgFePQFFb7',
 
   // ── Official Opening Hours ────────────────────────────────
-  openingHoursText: '9:00 AM – 7:00 PM',
+  openingHoursText: 'Mon–Sat: 9:00 AM – 7:00 PM | Sun: 9:30 AM – 1:30 PM',
 
   // ── Reusable Branch Components (3 branches; only Karapattu published) ─
   branches: [
@@ -181,7 +185,7 @@ const siteConfig: SiteConfig = {
       pincode: '635207',
       landmark: 'Near Barath Pump',
       phone: ['96265 59167', '94897 46955'],
-      mapsUrl: 'https://maps.app.goo.gl/u4iZmHZ9RKNheBvr9',
+      mapsUrl: 'https://maps.app.goo.gl/u3yxpXVWgFePQFFb7',
       isPublished: true,
     },
     {
@@ -589,7 +593,7 @@ const siteConfig: SiteConfig = {
     {
       id: 'g4',
       src: '/vehicles/bgauss-scooter.webp',
-      alt: 'BGauss and Ampere Electric Scooters',
+      alt: 'BGauss Electric Scooters',
       category: 'vehicles',
       isPublished: true,
     },

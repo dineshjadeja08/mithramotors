@@ -4,24 +4,26 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Languages } from 'lucide-react';
 import Logo from './Logo';
 import siteConfig from '@/config/siteConfig';
 import { telUrl, whatsappUrl, formatPhone } from '@/lib/utils';
+import { useLanguage } from '@/context/LanguageContext';
 
 const NAV_LINKS = [
-  { label: 'Home', href: '/' },
-  { label: 'Bikes', href: '/bikes' },
-  { label: 'Electric Vehicles', href: '/electric' },
-  { label: 'Spare Parts', href: '/spare-parts' },
-  { label: 'Service', href: '/service' },
-  { label: 'About Us', href: '/about' },
-  { label: 'Offers', href: '/offers' },
-  { label: 'Contact Us', href: '/contact' },
+  { label: 'Home', ta: 'முகப்பு', href: '/' },
+  { label: 'Bikes', ta: 'பைக்குகள்', href: '/bikes' },
+  { label: 'Electric Vehicles', ta: 'எலக்ட்ரிக்', href: '/electric' },
+  { label: 'Spare Parts', ta: 'உதிரி பாகங்கள்', href: '/spare-parts' },
+  { label: 'Service', ta: 'சர்வீஸ்', href: '/service' },
+  { label: 'About Us', ta: 'எங்களை பற்றி', href: '/about' },
+  { label: 'Offers', ta: 'சலுகைகள்', href: '/offers' },
+  { label: 'Contact Us', ta: 'தொடர்பு', href: '/contact' },
 ];
 
 export default function Header() {
   const pathname = usePathname();
+  const { lang, toggleLang } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -69,7 +71,7 @@ export default function Header() {
                       : 'text-[#172033] hover:text-[#E5242A]'
                   }`}
                 >
-                  {link.label}
+                  {lang === 'ta' ? link.ta : link.label}
                   {isActive && (
                     <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-[#0754A6] rounded-full" />
                   )}
@@ -78,8 +80,19 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Right Action Buttons: Both Phones & WhatsApp Button */}
+          {/* Right Action Buttons: Language Toggle, Phones & WhatsApp Button */}
           <div className="hidden sm:flex items-center gap-2">
+            {/* Tamil / English Toggle */}
+            <button
+              type="button"
+              onClick={toggleLang}
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-bold text-[#082D59] bg-[#EBF3FC] hover:bg-[#DCE9FA] border border-[#0754A6]/25 transition-colors cursor-pointer"
+              aria-label="Switch Language between English and Tamil"
+            >
+              <Languages className="w-3.5 h-3.5 text-[#0754A6]" />
+              <span>{lang === 'ta' ? 'EN' : 'தமிழ்'}</span>
+            </button>
+
             {/* Primary Phone */}
             <a
               href={telUrl(siteConfig.primaryPhone)}
@@ -113,8 +126,17 @@ export default function Header() {
             </a>
           </div>
 
-          {/* Mobile Actions: WhatsApp Icon + Hamburger Button */}
-          <div className="flex xl:hidden items-center gap-2">
+          {/* Mobile Actions: Language Toggle + WhatsApp Icon + Hamburger Button */}
+          <div className="flex xl:hidden items-center gap-1.5">
+            <button
+              type="button"
+              onClick={toggleLang}
+              className="px-2 py-1 rounded-full text-[11px] font-bold text-[#082D59] bg-[#EBF3FC] border border-[#0754A6]/25"
+              aria-label="Toggle Tamil or English"
+            >
+              {lang === 'ta' ? 'EN' : 'தமிழ்'}
+            </button>
+
             <a
               href={whatsappUrl("Hello Mithra Motors, I would like to make an enquiry.")}
               target="_blank"
@@ -158,7 +180,7 @@ export default function Header() {
                       : 'text-[#172033] hover:bg-gray-50'
                   }`}
                 >
-                  {link.label}
+                  {lang === 'ta' ? link.ta : link.label}
                 </Link>
               );
             })}

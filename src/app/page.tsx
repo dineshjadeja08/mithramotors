@@ -23,8 +23,10 @@ import {
 } from 'lucide-react';
 import siteConfig from '@/config/siteConfig';
 import { telUrl, whatsappUrl, mapsUrl, formatPhone } from '@/lib/utils';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function HomePage() {
+  const { lang } = useLanguage();
   const featuredBikes = siteConfig.vehicles.filter((v) => v.isFeatured && v.isPublished).slice(0, 4);
   const previewIds = ['tyres', 'batteries', 'oils', 'engine-parts'];
   const sparePartsPreview = siteConfig.spareParts.filter((p) => previewIds.includes(p.id));
@@ -58,15 +60,26 @@ export default function HomePage() {
 
             {/* Headline matching user prompt */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black text-white font-heading tracking-tight leading-[1.15]">
-              Mithra Motors — <br className="hidden sm:inline" />
-              <span className="text-white">
-                Trusted Two-Wheeler Showroom in Karapattu
-              </span>
+              {lang === 'ta' ? (
+                <>
+                  மித்ரா மோட்டார்ஸ் — <br className="hidden sm:inline" />
+                  <span className="text-white">காரப்பட்டு நம்பகமான இருசக்கர வாகன ஷோரூம்</span>
+                </>
+              ) : (
+                <>
+                  Mithra Motors — <br className="hidden sm:inline" />
+                  <span className="text-white">
+                    Trusted Two-Wheeler Showroom in Karapattu
+                  </span>
+                </>
+              )}
             </h1>
 
             {/* Subtitle matching mockup */}
             <p className="mt-5 text-base sm:text-lg text-gray-200 leading-relaxed font-normal">
-              New Bikes, Electric Scooters, Genuine Spare Parts, Exchange &amp; Expert Service.
+              {lang === 'ta'
+                ? 'புதிய பைக்குகள், எலக்ட்ரிக் ஸ்கூட்டர்கள், ஒரிஜினல் உதிரி பாகங்கள், எக்ஸ்சேஞ்ச் & சிறந்த சர்வீஸ்.'
+                : 'New Bikes, Electric Scooters, Genuine Spare Parts, Exchange & Expert Service.'}
             </p>
 
             {/* Three Action Buttons matching mockup */}
@@ -79,7 +92,7 @@ export default function HomePage() {
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#16A34A] hover:bg-[#15803D] active:scale-95 text-white font-bold text-sm sm:text-base shadow-lg shadow-green-600/30 transition-all duration-150"
               >
                 <Image src="/images/whatsapp-icon.png" alt="WhatsApp" width={24} height={24} className="w-5 h-5 rounded-full object-contain shrink-0" />
-                <span>WhatsApp Now</span>
+                <span>{lang === 'ta' ? 'வாட்ஸ்அப்' : 'WhatsApp Now'}</span>
               </a>
 
               {/* Call Now */}
@@ -88,7 +101,7 @@ export default function HomePage() {
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl bg-[#0754A6] hover:bg-[#053F7D] active:scale-95 text-white font-bold text-sm sm:text-base shadow-lg shadow-blue-700/30 transition-all duration-150"
               >
                 <Image src="/images/call-icon.png" alt="Call" width={24} height={24} className="w-5 h-5 rounded-full object-contain shrink-0" />
-                <span>Call Now</span>
+                <span>{lang === 'ta' ? 'அழைக்கவும்' : 'Call Now'}</span>
               </a>
 
               {/* Book Service */}
@@ -97,7 +110,7 @@ export default function HomePage() {
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#E5242A] hover:bg-[#C91A20] active:scale-95 text-white font-bold text-sm sm:text-base shadow-lg shadow-red-600/30 transition-all duration-150"
               >
                 <Wrench className="w-5 h-5" />
-                <span>Book Service</span>
+                <span>{lang === 'ta' ? 'சர்வீஸ் முன்பதிவு' : 'Book Service'}</span>
               </Link>
             </div>
           </div>
@@ -276,9 +289,9 @@ export default function HomePage() {
                   )}
                 </div>
 
-                {/* Price Label */}
-                <div className="mt-3 text-xs font-bold text-[#082D59] flex items-center gap-1">
-                  <span>₹ Contact for latest price</span>
+                {/* Price & EMI Guidance */}
+                <div className="mt-3 text-[11px] sm:text-xs font-bold text-[#082D59] flex items-center gap-1">
+                  <span>₹ {lang === 'ta' ? 'விலை & EMI விவரங்களுக்கு தொடர்பு கொள்ளவும்' : 'Easy EMI & Exchange • Contact for Price'}</span>
                 </div>
               </div>
 
@@ -291,15 +304,17 @@ export default function HomePage() {
                   className="w-full inline-flex items-center justify-center gap-1 py-2 px-2 rounded-lg bg-[#16A34A] hover:bg-[#15803D] active:scale-95 text-white text-[11px] sm:text-xs font-bold transition-colors"
                 >
                   <MessageCircle className="w-3.5 h-3.5 shrink-0" />
-                  <span>WhatsApp</span>
+                  <span>{lang === 'ta' ? 'வாட்ஸ்அப்' : 'WhatsApp'}</span>
                 </a>
 
-                <Link
-                  href={bike.fuelType === 'Electric' ? '/electric' : '/bikes'}
+                <a
+                  href={whatsappUrl(`Test ride: ${bike.brand} ${bike.model}`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full inline-flex items-center justify-center gap-1 py-2 px-2 rounded-lg bg-[#0754A6] hover:bg-[#053F7D] active:scale-95 text-white text-[11px] sm:text-xs font-bold transition-colors"
                 >
-                  <span>Test Ride</span>
-                </Link>
+                  <span>{lang === 'ta' ? 'டெஸ்ட் ரைடு' : 'Test Ride'}</span>
+                </a>
               </div>
             </div>
           ))}
@@ -375,7 +390,7 @@ export default function HomePage() {
               <Layers className="w-7 h-7" />
             </div>
             <h4 className="text-sm sm:text-base font-bold text-[#082D59]">Multi-brand Showroom</h4>
-            <p className="text-xs text-gray-500 mt-1">Authorized TVS, Komaki, BGauss &amp; Ampere dealer</p>
+            <p className="text-xs text-gray-500 mt-1">Hero, TVS, Komaki &amp; BGauss sales &amp; service</p>
           </div>
 
           <div className="bg-white rounded-2xl p-6 card-shadow border border-gray-100 flex flex-col items-center text-center">
@@ -499,8 +514,33 @@ export default function HomePage() {
               <div className="flex items-start gap-2.5">
                 <Clock className="w-4 h-4 text-[#0754A6] shrink-0 mt-0.5" />
                 <div>
-                  <span className="font-bold text-[#082D59] block">Opening Hours:</span>
-                  <span>9:00 AM – 7:00 PM (Monday – Saturday)</span>
+                  <span className="font-bold text-[#082D59] block">
+                    {lang === 'ta' ? 'திறக்கும் நேரம்:' : 'Opening Hours:'}
+                  </span>
+                  <span>
+                    {lang === 'ta'
+                      ? 'திங்கள் – சனி: 9:00 AM – 7:00 PM | ஞாயிறு: 9:30 AM – 1:30 PM'
+                      : 'Mon – Sat: 9:00 AM – 7:00 PM | Sun: 9:30 AM – 1:30 PM (Half-Day)'}
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-2.5">
+                <Star className="w-4 h-4 text-[#FFD42A] shrink-0 mt-0.5 fill-[#FFD42A]" />
+                <div>
+                  <span className="font-bold text-[#082D59] block">
+                    {lang === 'ta' ? 'கூகுள் மதிப்பீடுகள்:' : 'Verified Google Listing:'}
+                  </span>
+                  <a
+                    href={mapsUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#0754A6] font-semibold hover:underline"
+                  >
+                    {lang === 'ta'
+                      ? 'கூகுள் மேப்ஸில் வாடிக்கையாளர் கருத்துகளைப் பார்க்க →'
+                      : 'View Showroom Photos & Customer Reviews on Google Maps →'}
+                  </a>
                 </div>
               </div>
 
