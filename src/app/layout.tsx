@@ -23,6 +23,28 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: `${siteConfig.businessName} — Trusted Two-Wheeler Showroom in Karapattu`,
   description: siteConfig.description,
+  keywords: [
+    'Mithra Motors',
+    'Mithra Motors Karapattu',
+    'Multi Brand Two Wheeler Showroom Krishnagiri',
+    'Two Wheeler Showroom Near Barath Pump',
+    'Two Wheeler Showroom Uthangarai',
+    'Second Hand Motorcycle Dealers Krishnagiri',
+    'Second Hand Two Wheeler Exchange Karapattu',
+    'Motorcycle Dealers-Hero',
+    'Motorcycle Dealers-TVS',
+    'Motorcycle Dealers-Bajaj',
+    'Motorcycle Dealers-Yamaha',
+    'Motorcycle Dealers-Honda',
+    'Motorcycle Dealers-Suzuki',
+    'Hero Bikes Karapattu',
+    'TVS Showroom Karapattu',
+    'Komaki Electric Scooter Krishnagiri',
+    'BGauss Electric Scooter Karapattu',
+    'Hero TVS Spare Parts Karapattu',
+    'Two Wheeler Tyre Battery Oil Shop Karapattu',
+    'Two Wheeler Service Center Karapattu',
+  ],
   metadataBase: new URL(siteConfig.url),
   icons: {
     icon: [
@@ -78,8 +100,12 @@ export default function RootLayout({
                 postalCode: siteConfig.branches[0]?.pincode,
                 addressCountry: 'IN',
               },
-              telephone: siteConfig.primaryPhone,
+              telephone: `+91${siteConfig.whatsappNumber}`,
               url: siteConfig.url,
+              sameAs: [
+                siteConfig.googleMapsUrl,
+                'https://www.justdial.com/Krishnagiri/Mithra-Motors-Multi-Brand-Two-Wheeler-Showroom-Near-Bharat-Prtrol-Pump-Kunnathur/9999P4343-4343-251108102753-K1T1_BZDET',
+              ],
             }),
           }}
         />
