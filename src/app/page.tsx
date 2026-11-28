@@ -405,6 +405,56 @@ export default function HomePage() {
       </section>
 
       {/* ────────────────────────────────────────────────────────
+          7B. HAPPY CUSTOMER DELIVERIES (Real Showroom Moments)
+          ──────────────────────────────────────────────────────── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-2">
+          <div>
+            <span className="text-xs font-bold text-[#E5242A] uppercase tracking-wider">
+              Real Showroom Moments
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#082D59] font-heading mt-0.5">
+              Happy Customer Deliveries
+            </h2>
+          </div>
+          <Link
+            href="/about#deliveries"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0754A6] hover:text-[#E5242A] transition-colors"
+          >
+            <span>View More Photos</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5">
+          {[
+            { src: '/images/deliveries/delivery-1.webp', label: 'TVS Jupiter Delivery' },
+            { src: '/images/deliveries/delivery-3.webp', label: 'Hero Splendor+ Delivery' },
+            { src: '/images/deliveries/delivery-4.webp', label: 'BGauss EV Delivery' },
+            { src: '/images/deliveries/delivery-8.webp', label: 'Showroom Customer Handover' },
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              className="bg-white rounded-2xl overflow-hidden card-shadow border border-gray-100 flex flex-col"
+            >
+              <div className="relative aspect-[4/3] w-full bg-gray-100">
+                <Image
+                  src={item.src}
+                  alt={item.label}
+                  fill
+                  className="object-cover object-top hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
+              </div>
+              <div className="p-2.5 sm:p-3 text-center">
+                <span className="text-[11px] sm:text-xs font-bold text-[#082D59]">{item.label}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ────────────────────────────────────────────────────────
           8. SHOWROOM LOCATION & HOURS (Matching Confirmed Map URL)
           ──────────────────────────────────────────────────────── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">

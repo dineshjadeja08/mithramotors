@@ -216,6 +216,40 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+
+        {/* Customer Deliveries Photo Grid */}
+        <div id="deliveries" className="mt-12 sm:mt-16">
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <span className="text-xs font-bold text-[#E5242A] uppercase tracking-wider">
+              Karapattu Showroom
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#082D59] font-heading mt-1">
+              Recent Customer Deliveries
+            </h3>
+            <p className="mt-2 text-sm text-gray-600">
+              Trusted by families across Karapattu, Uthangarai, Kunnathur, and Krishnagiri.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+              <div
+                key={num}
+                className="rounded-2xl overflow-hidden bg-white card-shadow border border-gray-100"
+              >
+                <div className="relative aspect-[4/3] w-full bg-gray-100">
+                  <Image
+                    src={`/images/deliveries/delivery-${num}.webp`}
+                    alt={`Mithra Motors Customer Delivery ${num}`}
+                    fill
+                    className="object-cover object-top hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ────────────────────────────────────────────────────────
